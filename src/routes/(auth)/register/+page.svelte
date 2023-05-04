@@ -1,7 +1,7 @@
 <script lang="ts">
-    import RegisterForm from "../components/RegisterForm.svelte";
+	import RegisterForm from './RegisterForm.svelte';
+
+	export let data;
 </script>
 
-<div class="container h-full mx-auto flex flex-col justify-center items-center">
-    <RegisterForm />
-</div>
+<RegisterForm data={data.form} />

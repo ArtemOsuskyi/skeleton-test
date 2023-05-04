@@ -1,7 +1,7 @@
 <script lang="ts">
-	import LoginForm from '../components/LoginForm.svelte';
+	import LoginForm from './LoginForm.svelte';
+
+	export let data;
 </script>
 
-<div class="container h-full mx-auto flex flex-col justify-center items-center">
-	<LoginForm />
-</div>
+<LoginForm data={data.form} />

@@ -13,13 +13,11 @@
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<a href="/">
-					<strong class="text-xl">Gachigram</strong>
+					<strong class="text-xl">App</strong>
 				</a>
-
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<slot />
-	<svelte:fragment slot="footer">
-	</svelte:fragment>
+	<svelte:fragment slot="footer" />
 </AppShell>
