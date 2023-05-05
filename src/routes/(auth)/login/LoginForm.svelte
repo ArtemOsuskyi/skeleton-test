@@ -8,7 +8,6 @@
 </script>
 
 <form
-	bind:this={$form}
 	method="POST"
 	class="container h-50 mx-auto justify-center items-center max-w-fit flex flex-col gap-y-2"
 	use:enhance
