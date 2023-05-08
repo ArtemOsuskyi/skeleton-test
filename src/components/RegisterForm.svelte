@@ -5,6 +5,7 @@
 	import type { RegisterSchema } from '$lib/schemas';
 	import { registerSchema } from '$lib/schemas';
 	import type { Validation } from 'sveltekit-superforms';
+	import { goto } from '$app/navigation';
 
 	export let data: Validation<RegisterSchema>;
 
@@ -25,7 +26,12 @@
 	});
 
 	async function handleRegister() {
-		$valid ? toastStore.trigger(successToast) : toastStore.trigger(failureToast);
+		if ($valid) {
+			toastStore.trigger(successToast);
+			setTimeout(() => {
+				goto('/');
+			}, 1000);
+		} else toastStore.trigger(failureToast);
 	}
 </script>
 

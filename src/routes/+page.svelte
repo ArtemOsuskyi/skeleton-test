@@ -5,7 +5,7 @@
 	const goToRegister = () => goto('/register');
 </script>
 
-<div class="container h-full mx-auto flex justify-center items-center">
+<div class="container h-full mx-auto flex justify-center items-center border-amber-50 border-2">
 	<div class="space-y-5 justify-self-center flex flex-col">
 		<h1>Welcome to App!</h1>
 		<div class="self-center">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import RegisterForm from './RegisterForm.svelte';
+	import RegisterForm from '../../../components/RegisterForm.svelte';
 
 	export let data;
 </script>

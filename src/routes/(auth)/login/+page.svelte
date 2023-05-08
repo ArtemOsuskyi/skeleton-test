@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LoginForm from './LoginForm.svelte';
+	import LoginForm from '../../../components/LoginForm.svelte';
 
 	export let data;
 </script>
