@@ -11,7 +11,7 @@
 		Chat
 	</div>
 	<div
-		class="container max-w-[98%] h-full bg-chat-grey rounded-md"
+		class="container max-w-[98%] h-full bg-chat-grey rounded-md relative"
 	>
 		<Message />
 	</div>
