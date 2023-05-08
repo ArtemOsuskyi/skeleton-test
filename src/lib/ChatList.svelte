@@ -10,9 +10,11 @@
 	};
 </script>
 
-<div class="container h-full max-w-fit mx-auto flex flex-col gap-y-2.5 pl-5 pr-5">
+<div
+	class="container h-full max-w-fit mx-auto flex flex-col gap-y-2.5 pl-5 pr-5"
+>
 	<SearchBar />
 	{#each chatIds as chatId}
-		<ChatRoom number={chatId} on:click={() => goToChat(chatId)} />
+		<ChatRoom {chatId} on:click={() => goToChat(chatId)} />
 	{/each}
 </div>

@@ -1,9 +1,15 @@
 <script lang="ts">
-	import { Toast, type ToastSettings, toastStore } from '@skeletonlabs/skeleton';
+	import {
+		Toast,
+		type ToastSettings,
+		toastStore
+	} from '@skeletonlabs/skeleton';
 
 	import { superForm } from 'sveltekit-superforms/client';
-	import type { RegisterSchema } from '$lib/schemas';
-	import { registerSchema } from '$lib/schemas';
+	import {
+		registerSchema,
+		type RegisterSchema
+	} from '$lib/schemas/register.schema';
 	import type { Validation } from 'sveltekit-superforms';
 	import { goto } from '$app/navigation';
 
@@ -71,8 +77,14 @@
 		bind:value={$form.email}
 	/>
 	{#if $errors.email}
-		<small class="text-error-500-400-token transition">{$errors.email}</small>
+		<small class="text-error-500-400-token transition"
+			>{$errors.email}</small
+		>
 	{/if}
 
-	<button type="submit" class="btn variant-filled-primary max-w-fit self-center">Register</button>
+	<button
+		type="submit"
+		class="btn variant-filled-primary max-w-fit self-center"
+		>Register</button
+	>
 </form>

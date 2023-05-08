@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Validation } from 'sveltekit-superforms';
-	import type { LoginSchema } from '$lib/schemas';
+	import { type LoginSchema } from '$lib/schemas/login.schema';
 	import { superForm } from 'sveltekit-superforms/client';
 
 	export let data: Validation<LoginSchema>;
@@ -26,5 +26,8 @@
 		bind:value={$form.password}
 	/>
 
-	<button class="btn variant-filled-primary max-w-fit self-center">Login</button>
+	<button
+		class="btn variant-filled-primary max-w-fit self-center"
+		>Login</button
+	>
 </form>

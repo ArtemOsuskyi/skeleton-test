@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
-	export let number: number;
+	export let chatId: number;
 </script>
 
 <button
@@ -8,5 +8,5 @@
 	on:click
 >
 	<Avatar src="https://i.redd.it/0gk8b1l3maa31.png" />
-	<div class="text-[20px]">Chat {number}</div>
+	<div class="text-[20px]">Chat {chatId}</div>
 </button>
