@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ChatBox from '$lib/ChatBox.svelte';
+	import ChatBox from '$lib/components/ChatBox.svelte';
 	import { goto } from '$app/navigation';
 
 	const goBackToMain = ({ key }: KeyboardEvent) => {
