@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Avatar } from '@skeletonlabs/skeleton';
-	import type { MessageSchema } from '$lib/schemas/messages.schema.ts';
+	import { Avatar }           from '@skeletonlabs/skeleton';
+	import type { MessageItem } from '$lib/schemas/messages.schema.ts';
 
 	export let currentUser;
-	export let message: MessageSchema;
+	export let message: MessageItem;
 </script>
 
 <div

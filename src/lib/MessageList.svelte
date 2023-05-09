@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Message from '$lib/Message.svelte';
-	import type { MessageSchema } from '$lib/schemas/messages.schema';
+	import Message              from '$lib/Message.svelte';
+	import type { MessageItem } from '$lib/schemas/messages.schema';
 
-	export let messages: MessageSchema[] = [
+	export let messages: MessageItem[] = [
 		{
 			user: 'user',
 			text: 'yes'
