@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Validation } from 'sveltekit-superforms';
-	import { type LoginSchema } from '$lib/schemas/login.schema';
+	import type { LoginSchema } from '$lib/schemas/login.schema';
 	import { superForm } from 'sveltekit-superforms/client';
 
 	export let data: Validation<LoginSchema>;

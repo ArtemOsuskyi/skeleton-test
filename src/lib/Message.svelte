@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Avatar }           from '@skeletonlabs/skeleton';
-	import type { MessageItem } from '$lib/schemas/messages.schema.ts';
+	import { Avatar } from '@skeletonlabs/skeleton';
+	import type { MessageItem } from '$lib/schemas/messages.schema';
 
-	export let currentUser;
+	export let currentUser: string;
 	export let message: MessageItem;
 </script>
 

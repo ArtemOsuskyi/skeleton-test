@@ -1,5 +1,5 @@
 import { superValidate } from 'sveltekit-superforms/server';
-import { loginSchema } from '$lib/schemas';
+import { loginSchema } from '$lib/schemas/login.schema';
 import { type Actions, fail } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 

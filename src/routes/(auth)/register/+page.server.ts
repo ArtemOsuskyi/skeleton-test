@@ -5,7 +5,7 @@ import {
 	message,
 	superValidate
 } from 'sveltekit-superforms/server';
-import { registerSchema } from '$lib/schemas';
+import { registerSchema } from '$lib/schemas/register.schema';
 
 export const load = (async (event) => {
 	const form = await superValidate(event, registerSchema);
@@ -25,3 +25,4 @@ export const actions = {
 		return message(form, 'Register successful!');
 	}
 } satisfies Actions;
+
