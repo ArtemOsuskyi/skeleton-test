@@ -1,5 +1,5 @@
 <script>
-	import MessageList from '$lib/MessageList.svelte';
+	import MessageList from '$lib/components/MessageList.svelte';
 </script>
 
 <div
