@@ -2,10 +2,10 @@ import lucia from 'lucia-auth';
 import { sveltekit } from 'lucia-auth/middleware';
 import prisma from '@lucia-auth/adapter-prisma';
 import { dev } from '$app/environment';
-import { prismaClient } from '$lib/server/prisma';
+import { PrismaClient } from '@prisma/client';
 
 export const auth = lucia({
-	adapter: prisma(prismaClient),
+	adapter: prisma(new PrismaClient()),
 	env: dev ? 'DEV' : 'PROD',
 	transformDatabaseUser: (userData) => {
 		return {
