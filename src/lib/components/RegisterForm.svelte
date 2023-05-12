@@ -1,10 +1,10 @@
 <script lang="ts">
 	import {
+		ProgressRadial,
 		Toast,
 		type ToastSettings,
 		toastStore
 	} from '@skeletonlabs/skeleton';
-
 	import { superForm } from 'sveltekit-superforms/client';
 	import {
 		registerSchema,
@@ -12,24 +12,28 @@
 	} from '$lib/schemas/register.schema';
 	import type { Validation } from 'sveltekit-superforms';
 	import { goto } from '$app/navigation';
+	import { enhance } from '$app/forms';
 
 	export let data: Validation<RegisterSchema>;
 
-	const successToast: ToastSettings = {
-		message: 'You have successfully registered',
-		background: 'variant-filled-success'
-	};
+	let isRegistering = false;
 
-	const failureToast: ToastSettings = {
-		message: 'Please fix the errors',
-		background: 'variant-filled-error'
-	};
-
-	const { form, errors, enhance, valid } = superForm(data, {
+	const { form, errors, valid, message } = superForm(data, {
+		taintedMessage: false,
 		validationMethod: 'onblur',
 		validators: registerSchema,
 		onUpdated: handleRegister
 	});
+
+	const successToast: ToastSettings = {
+		message: 'Successfully registered!',
+		background: 'variant-filled-success'
+	};
+
+	const failureToast: ToastSettings = {
+		message: 'Registration failed!',
+		background: 'variant-filled-error'
+	};
 
 	async function handleRegister() {
 		if ($valid) {
@@ -46,7 +50,14 @@
 <form
 	method="POST"
 	class="container h-50 mx-auto justify-center items-center max-w-fit flex flex-col gap-y-2"
-	use:enhance
+	use:enhance={() => {
+		isRegistering = true;
+
+		return async ({ update }) => {
+			await update();
+			isRegistering = false;
+		};
+	}}
 >
 	<input
 		class="input input-bordered"
@@ -77,14 +88,17 @@
 		bind:value={$form.email}
 	/>
 	{#if $errors.email}
-		<small class="text-error-500-400-token transition"
-			>{$errors.email}</small
-		>
+		<small class="text-error-500-400-token transition">{$errors.email}</small>
 	{/if}
-
-	<button
-		type="submit"
-		class="btn variant-filled-primary max-w-fit self-center"
-		>Register</button
-	>
+	{#if isRegistering === true}
+		<ProgressRadial width="w-10" stroke={60} meter="stroke-primary-500" />
+	{:else}
+		<button
+			id="button"
+			type="submit"
+			class="btn variant-filled-primary max-w-fit self-center"
+		>
+			Register
+		</button>
+	{/if}
 </form>

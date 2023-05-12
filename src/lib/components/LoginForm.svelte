@@ -26,8 +26,6 @@
 		bind:value={$form.password}
 	/>
 
-	<button
-		class="btn variant-filled-primary max-w-fit self-center"
-		>Login</button
+	<button class="btn variant-filled-primary max-w-fit self-center">Login</button
 	>
 </form>

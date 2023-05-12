@@ -1,7 +1,8 @@
 <script lang="ts">
 	import RegisterForm from '$lib/components/RegisterForm.svelte';
+	import type { PageServerData } from './$types';
 
-	export let data;
+	export let data: PageServerData;
 </script>
 
 <div

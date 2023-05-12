@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Message              from '$lib/components/Message.svelte';
+	import Message from '$lib/components/Message.svelte';
 	import type { MessageItem } from '$lib/schemas/messages.schema';
 
 	export let messages: MessageItem[] = [

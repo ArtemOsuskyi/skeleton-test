@@ -8,5 +8,5 @@
 	on:click
 >
 	<Avatar src="https://i.redd.it/0gk8b1l3maa31.png" />
-	<div class="text-[20px]">Chat {chatId}</div>
+	<div class="text-[20px]">Gym {chatId}</div>
 </button>

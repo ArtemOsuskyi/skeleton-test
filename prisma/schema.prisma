@@ -8,35 +8,32 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model AuthUser {
-  id       String        @id @unique
-  username String        @unique
-  email    String        @unique
-  session  AuthSession[]
-  key      AuthKey[]
+model User {
+  id       String    @id @unique @default(uuid())
+  username String    @unique
+  password String
+  email    String    @unique
+  chats    Chat[]
+  Message  Message[]
 
-  @@map("user")
+  @@map("users")
 }
 
-model AuthSession {
-  id             String   @id @unique
-  user_id        String
-  active_expires BigInt
-  idle_expires   BigInt
-  user           AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
+model Chat {
+  id       String    @id @default(uuid())
+  users    User[]
+  messages Message[]
 
-  @@index([user_id])
-  @@map("session")
+  @@map("chats")
 }
 
-model AuthKey {
-  id              String   @id @unique
-  hashed_password String?
-  user_id         String
-  primary_key     Boolean
-  expires         BigInt?
-  auth_user       AuthUser @relation(fields: [user_id], references: [id], onDelete: Cascade)
+model Message {
+  id       Int    @id @default(autoincrement())
+  chat     Chat   @relation(fields: [chatId], references: [id])
+  chatId   String
+  text     String
+  sender   User   @relation(fields: [senderId], references: [id])
+  senderId String
 
-  @@index([user_id])
-  @@map("key")
+  @@map("messages")
 }

@@ -1,43 +1,40 @@
-import { type Actions, fail, redirect } from '@sveltejs/kit';
+import { type Actions, fail } from '@sveltejs/kit';
 
 import type { PageServerLoad } from './$types';
-import {
-	message,
-	superValidate
-} from 'sveltekit-superforms/server';
+import { setError, superValidate } from 'sveltekit-superforms/server';
 import { registerSchema } from '$lib/schemas/register.schema';
-import { auth }                from '$lib/server/lucia';
+import { createUser, getUser } from '$lib/server/repositories/user.repository';
+import { isNil } from 'lodash';
 
-export const load = (async ({locals}) => {
-	const session = await locals.auth.validate();
-	if (session) {
-		throw redirect(302, '/')
-	}
+export const load = (async (event) => {
+	const form = await superValidate(event, registerSchema);
+	return {
+		form
+	};
 }) satisfies PageServerLoad;
 
 export const actions = {
 	default: async ({ request }) => {
-		const form = await superValidate(
-			request,
-			registerSchema
-		);
+		await new Promise((fulfil) => setTimeout(fulfil, 1000))
+
+		const form = await superValidate(request, registerSchema);
 		if (!form.valid) return fail(400, { form });
+		const { username, email } = form.data;
 
-		const { username, password, email } = form.data;
-
-		await auth.createUser({
-			primaryKey: {
-				providerId: 'username',
-				providerUserId: username,
-				password
-			},
-			attributes: {
-				username,
-				email
+		const existingUser = await getUser(username);
+		if (!isNil(existingUser)) {
+			if (existingUser.username === username) {
+				setError(form, 'username', 'Username is already taken');
 			}
-		})
+			if (existingUser.email === email) {
+				setError(form, 'email', 'Email is already taken');
+			}
 
-		return message(form, 'Register successful!');
+			return fail(400, { form });
+		}
+
+		await createUser(form.data);
+
+		return { form };
 	}
 } satisfies Actions;
-

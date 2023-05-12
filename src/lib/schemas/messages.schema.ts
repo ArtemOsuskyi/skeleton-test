@@ -7,4 +7,4 @@ export const messagesSchema = z
 	})
 	.strict();
 
-export type MessageItem = z.infer<typeof messagesSchema>
+export type MessageItem = z.infer<typeof messagesSchema>;

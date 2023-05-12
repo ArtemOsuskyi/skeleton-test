@@ -7,3 +7,5 @@ export const registerSchema = z.object({
 });
 
 export type RegisterSchema = typeof registerSchema;
+
+export type User = z.infer<typeof registerSchema>;
