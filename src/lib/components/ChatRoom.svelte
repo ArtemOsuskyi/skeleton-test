@@ -4,7 +4,7 @@
 </script>
 
 <button
-	class="h-[86px] w-[385px] bg-chat-grey rounded-xl hover:variant-ghost-primary hover:transition-ease-in-out duration-300 justify-start items-center flex gap-x-[20px] pl-[18px]"
+	class="hover:variant-ghost-primary hover:transition-ease-in-out flex h-[86px] w-[385px] items-center justify-start gap-x-[20px] rounded-xl bg-chat-grey pl-[18px] duration-300"
 	on:click
 >
 	<Avatar src="https://i.redd.it/0gk8b1l3maa31.png" />

@@ -1,8 +1,8 @@
 <div
-	class="container h-auto min-w-fit flex justify-center items-center text-center"
+	class="container flex h-auto min-w-fit items-center justify-center text-center"
 >
 	<p
-		class="rounded-full h-[38px] w-[385px] bg-chat-grey justify-center items-center flex"
+		class="flex h-[38px] w-[385px] items-center justify-center rounded-full bg-chat-grey"
 	>
 		Select chat to begin messaging
 	</p>

@@ -5,8 +5,8 @@
 	const goToRegister = () => goto('/register');
 </script>
 
-<div class="container h-full mx-auto flex justify-center items-center">
-	<div class="space-y-5 justify-self-center flex flex-col">
+<div class="container mx-auto flex h-full items-center justify-center">
+	<div class="flex flex-col space-y-5 text-2xl justify-self-center">
 		<h1>Wel♂CUM♂ to Gachigram!</h1>
 		<div class="self-center">
 			<button class="btn variant-filled-primary" on:click={goToLogin}

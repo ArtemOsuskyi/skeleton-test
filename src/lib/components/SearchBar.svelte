@@ -1,6 +1,6 @@
-<div class="container h-auto max-w-full flex mt-7 mb-6">
+<div class="container mb-6 mt-7 flex h-auto max-w-full">
 	<input
-		class="input bg-chat-grey rounded-xl hover:transition-ease-in-out duration-300 flex text-center"
+		class="hover:transition-ease-in-out input flex rounded-xl bg-chat-grey text-center duration-300"
 		type="text"
 		placeholder="Search"
 	/>

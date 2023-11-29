@@ -11,7 +11,7 @@
 </script>
 
 <div
-	class="container h-full max-w-fit mx-auto flex flex-col gap-y-2.5 pl-5 pr-5"
+	class="container mx-auto flex h-full max-w-fit flex-col gap-y-2.5 pl-5 pr-5"
 >
 	<SearchBar />
 	{#each chatIds as chatId}

@@ -39,7 +39,7 @@
 </script>
 
 <div
-	class="overflow-y-scroll h-[400px] flex flex-col-reverse min-h-full gap-y-4"
+	class="flex h-[400px] min-h-full flex-col-reverse gap-y-4 overflow-y-scroll"
 >
 	{#each messages.reverse() as message}
 		<Message currentUser="user" {message} />

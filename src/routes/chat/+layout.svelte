@@ -2,7 +2,7 @@
 	import ChatList from '$lib/components/ChatList.svelte';
 </script>
 
-<div class="container h-full mx-auto flex bg-black rounded-md">
+<div class="container mx-auto flex h-full rounded-md bg-black">
 	<ChatList />
 	<slot />
 </div>
